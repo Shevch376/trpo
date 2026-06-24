@@ -228,7 +228,10 @@ with open(filename, "r", encoding="utf-8") as f:
     data = f.read().split()
 
 if len(data) >= 10:
-    data = data[-5:] + data[5:-5] + data[:5]
+    first = data[:5]
+    middle = data[5:-5]
+    last = data[-5:]
+    data = last + middle + first
 
 with open(filename, "w", encoding="utf-8") as f:
     f.write(" ".join(data))
